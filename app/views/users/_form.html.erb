@@ -1,0 +1,12 @@
+<%= form_for(@message) do |f| %>
+  <div class="form-group">
+    <%= f.label :message %>
+    <%= url_field(:message, :link) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :user %>
+    <%= collection_select(:post, :user_id, User.all, :id, :name, {:prompt => true}) %>
+  </div>
+  <%= f.submit(:class => "btn btn-primary") %>
+<% end %>
+

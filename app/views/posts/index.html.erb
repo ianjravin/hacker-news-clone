@@ -1,0 +1,15 @@
+<h1>Hacker News Clone</h1>
+
+<% @posts.each do |post| %>
+  <h4><a href="<%= post.link %>"><%= post.title %></a></h4>
+    <button class='btn btn-default btn-xs'><a href="/posts/<%= post.id%>/vote" data-method="put"
+    rel="nofollow"><span class="glyphicon glyphicon-thumbs-up"></span></a></button> |
+  <%= post.votes %> votes | posted by: <%= post.user.name %> |
+  <%= link_to "Delete", post_path(post),
+                      :line => "You sure?",
+                      :method => "delete",
+                      :class => "btn btn-danger btn-xs" %><br>
+  <a href="">Comments</a>
+  <% end %><br><br>
+<%= link_to "Post a new Link", new_post_path, :class=> "btn btn-default btn-xs" %>
+

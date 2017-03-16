@@ -1,0 +1,17 @@
+<%= form_for(@post) do |f| %>
+  <div class="form-group">
+    <%= f.label :link %>
+    <%= url_field(:post, :link, :value => "http://") %>
+  </div>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="form-group">
+    <%= f.label :user %>
+    <%= collection_select(:post, :user_id, User.all, :id, :name, {:prompt => true}) %>
+  </div>
+  <%= f.submit(:class => "btn btn-primary") %>
+<% end %>
+
+
